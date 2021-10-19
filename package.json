@@ -1,0 +1,10 @@
+{
+  "name": "@my-director/backend",
+  "version": "0.1.0",
+  "description": "Backend service for the MyDirector App",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:asiebert/mydirector-backend.git",
+  "author": "Axel Siebert <a.siebert_84@gmx.de>",
+  "license": "UNLICENSED",
+  "private": true
+}
