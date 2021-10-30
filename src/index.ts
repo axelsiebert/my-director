@@ -10,9 +10,15 @@
 // Third-party dependencies
 import express from 'express';
 import { exit } from 'process';
+import { json } from 'body-parser';
+import swaggerJsDoc from 'swagger-jsdoc';
+import { serve, setup } from 'swagger-ui-express';
+import expressWinston from 'express-winston';
 
 // Config
 import { environment } from './config/env';
+import { loggerConfig } from './config/logger';
+import { swaggerJsdocOptions } from './config/swagger';
 
 // Utils
 import { shutdown } from './utils/process/process.utils';
@@ -21,16 +27,25 @@ import { shutdown } from './utils/process/process.utils';
 import baseRouter from './routes/base/base.routes';
 
 // Middlewares
-import loggerMiddleware from './middlewares/logger/logger.middleware';
 
 const app = express();
 
-// Apply middlewares
+/**
+ * Middlewares
+ */
+// Logger
 if (environment.NODE_ENV === 'development') {
-  app.use(loggerMiddleware);
+  app.use(expressWinston.logger(loggerConfig));
 }
-
-// Apply routes
+// JSON body parser
+app.use(json());
+// Swagger-UI
+const swaggerSpecs = swaggerJsDoc(swaggerJsdocOptions);
+app.use('/docs', serve, setup(swaggerSpecs));
+/**
+ * Routes
+ */
+// base routes
 app.use(baseRouter);
 
 const server = app.listen(environment.API_PORT, () => {
@@ -65,5 +80,9 @@ app.on('SIGTERM', () => {
 });
 
 app.on('SIGKILL', () => {
+  shutdown(server);
+});
+
+app.on('SIGINT', () => {
   shutdown(server);
 });
