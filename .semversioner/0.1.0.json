@@ -1,0 +1,14 @@
+[
+  {
+    "description": "Add swagger-ui",
+    "type": "minor"
+  },
+  {
+    "description": "Add winston logging",
+    "type": "minor"
+  },
+  {
+    "description": "First release with status endpoint",
+    "type": "minor"
+  }
+]
