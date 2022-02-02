@@ -168,12 +168,17 @@ const moduleWrapper = tsserver => {
         typeof parsedMessage.arguments.hostInfo === `string`
       ) {
         hostInfo = parsedMessage.arguments.hostInfo;
+<<<<<<< refs/remotes/origin/develop
         if (hostInfo === `vscode` && process.env.VSCODE_IPC_HOOK) {
           if (/(\/|-)1\.([1-5][0-9]|60)\./.test(process.env.VSCODE_IPC_HOOK)) {
             hostInfo += ` <1.61`;
           } else if (/(\/|-)1\.(6[1-5])\./.test(process.env.VSCODE_IPC_HOOK)) {
             hostInfo += ` <1.66`;
           }
+=======
+        if (hostInfo === `vscode` && process.env.VSCODE_IPC_HOOK && process.env.VSCODE_IPC_HOOK.match(/Code\/1\.([1-5][0-9]|60)\./)) {
+          hostInfo += ` <1.61`;
+>>>>>>> :arrow_up: Update yarn version
         }
       }
 
