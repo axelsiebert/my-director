@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "Backend service for the MyDirector App",
   "main": "index.js",
-  "repository": "git@bitbucket.org:asiebert/mydirector-backend.git",
+  "repository": "git@github.com:axelsiebert/my-director.git",
   "author": "Axel Siebert <a.siebert_84@gmx.de>",
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "GPL-3.0-only",
+  "private": false,
   "scripts": {
     "dev": "nodemon --exec \"yarn start\"",
     "start": "ts-node ./src/index.ts"
