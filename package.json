@@ -36,5 +36,5 @@
     "express-winston": "^4.2.0",
     "winston": "^3.7.2"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.2"
 }
