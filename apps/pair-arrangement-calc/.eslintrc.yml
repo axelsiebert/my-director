@@ -1,0 +1,62 @@
+parser: '@typescript-eslint/parser'
+plugins:
+  - sort-keys-fix
+  - sort-imports-es6-autofix
+  - '@typescript-eslint'
+  - prettier
+extends: 
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - prettier
+root: true
+env:
+  browser: true
+  jest: true
+  jasmine: true
+settings:
+  react:
+    pragma: React
+    version: detect
+rules:
+  '@typescript-eslint/no-unused-vars':
+    - 2
+    - 
+      vars: all
+      args: all
+      varsIgnorePattern: '^jsx$'
+      argsIgnorePattern: '[Ii]gnored$'
+  '@typescript-eslint/no-use-before-define': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/no-explicit-any': off
+  no-console: warn
+  no-restricted-imports:
+    - error
+    - 
+      patterns: 
+        - '!@material-ui/core/test-utils/*'
+  prettier/prettier:
+    - error
+    - 
+      singleQuote: true
+  react-hooks/exhaustive-deps: warn
+  react-hooks/rules-of-hooks: error
+  sort-imports-es6-autofix/sort-imports-es6:
+    - error
+    - 
+      ignoreCase: false
+      ignoreMemberSort: false
+      memberSyntaxSortOrder:
+        - none
+        - all
+        - multiple
+        - single
+  sort-keys:
+    - error
+    - asc
+    - 
+      caseSensitive: true
+      natural: false
+      minKeys: 2
+  sort-keys-fix/sort-keys-fix: warn

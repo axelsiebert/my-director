@@ -1,0 +1,11 @@
+rules:
+  hex-notation:
+    - 2
+    - style: uppercase
+  indentation:
+    - 2
+    - size: 2
+  max-line-length:
+    - 2
+    - length: 100
+  no-vendor-prefixes: 0
