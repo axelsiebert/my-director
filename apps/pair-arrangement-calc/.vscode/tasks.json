@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "label": "start-dev-server",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^$",
+          "endsPattern": "You can now view (.*) in the browser.$"
+        }
+      },
+      "options": {
+        "env": {
+          "PORT": "5000",
+          "BROWSER": "none",
+          "NODE_ENV": "development"
+        }
+      }
+    },
+    {
+      "label": "stop-dev-server",
+      "command": "echo ${input.terminate}",
+      "type": "shell"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "start-dev-server"
+    }
+  ]
+}
