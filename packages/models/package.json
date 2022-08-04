@@ -1,0 +1,11 @@
+{
+  "name": "@my-director/models",
+  "description": "Data type definitions to be used in all other packages.",
+  "version": "0.1.0",
+  "author": {
+    "email": "a.siebert_84@gmx.de",
+    "name": "Axel Siebert"
+  },
+  "license": "GPL-3.0-only",
+  "packageManager": "yarn@3.2.2"
+}
